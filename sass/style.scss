@@ -1,0 +1,171 @@
+//frameworks
+
+@import "compass";
+@import "gridle";
+
+//mixins
+
+@import "colors";
+@import "font";
+@import "mixins";
+@import "settings";
+@import "simtip";
+@include gridle_generate_classes();
+@include gridle_register_state("tablet", 401px, 730px);
+@include gridle_register_state("desktop", 731px, 1299px);
+@include gridle_register_state("giant", 1300px, null);
+
+
+//style
+
+html {
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	margin: 0;
+}
+
+header {
+	background: $blue;
+	height: 80px;
+	margin-bottom: 50px;
+	h1 {
+		@include gridle(8);
+		margin: 0;
+		padding: 30px 0 20px 0;
+		@include montserrat(24px, white);
+		text-transform: uppercase;
+	}
+}
+
+.container {
+	width: 1100px;
+	margin: auto;
+}
+
+.head-button {
+	@include gridle_float(right);
+	margin-left: 20px;
+	text-align: center;
+	text-decoration: none;
+	margin-top: 10px;
+	height: 40px;
+	width: 40px;
+	padding: 10px;
+	border-radius: 30px;
+	@include transition(0.4s);
+	cursor: pointer;
+	label {
+		@include open-sans(400, 12px, white);
+		display: block;
+		cursor: pointer;
+	}
+	&:hover {
+		background: darken($blue, 8%);
+	}
+}
+
+.sections {
+	@include gridle(3);
+	margin: 10px 0;
+	cursor: pointer;
+	.btn-section {
+		border-radius: 5px;
+		background: lighten($gray, 60%);
+		height: 120px;
+		text-align: center;
+		@include transition(0.4s);
+		h4 {
+			@include montserrat(15px, $gray);
+			font-weight: 600;
+			padding-top: 50px;
+			margin: 0;
+			text-transform: uppercase;
+		}
+		&:hover {
+			background: lighten($gray, 50%);
+		}
+	}
+}
+
+.buttons-container {
+	margin-bottom: 30px;
+}
+
+.buttons {
+	height: 38px;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 600;
+	@include transition(0.4s);
+	border-radius: 5px;
+	margin-right: 5px;
+	padding: 15px 30px;
+	img {
+		margin-right: 10px;
+	}
+}
+
+.btn-primary {
+	@include montserrat(16px, white);
+	background: $blue;
+	&:hover {
+		background: darken($blue, 8%);
+	}
+}
+
+.btn-secondary {
+	@include montserrat(16px, $gray);
+	background: lighten($gray, 60%);
+	&:hover {
+		background: lighten($gray, 50%);
+	}
+}
+
+table {
+	width: 100%;
+	text-align: left;
+}
+
+td, th {
+	padding: 5px 15px;
+}
+
+td {
+	@include open-sans(400, 14px, $gray);
+	a {
+		padding: 10px;
+	}
+}
+
+th {
+	@include open-sans(600, 14px, $gray);
+}
+
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.table-content:first-child {
+	border-top: 1px solid #333;
+}
+
+.table-content:last-child {
+	border-bottom: 1px solid #333;
+}
+
+.check {
+	width: 2%;
+}
+
+.title {
+	width: 83%;
+}
+
+.actions {
+	width: 15%;
+}
