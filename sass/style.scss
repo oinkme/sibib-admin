@@ -1,7 +1,6 @@
 //frameworks
-
-@import "compass";
-@import "gridle";
+//@import "compass";
+//@import "gridle";
 
 //mixins
 
@@ -244,5 +243,42 @@ table tr:nth-child(odd) {
 	.button-login {
 		display: inline-block;
 		margin-top: 30px;
+	}
+}
+
+.pagination {
+	margin-top: 30px;
+	text-align: center;
+	a {
+		@include open-sans(400, 15px, $gray);
+		text-decoration: none;
+		padding: 6px 12px;
+		margin: 0 3px;
+		border-radius: 20px;
+		@include transition(0.3s);
+		&:hover {
+			background: lighten($blue, 30%);
+			color: white;
+		}
+		&.active {
+			background: $blue;
+			color: white;
+		}
+		&.nav-disabled {
+			background: none;
+			border: 1px solid lighten($gray, 30%);
+			color: lighten($gray, 30%);
+			cursor: default;
+		}
+		&.nav-enabled {
+			background: none;
+			border: 1px solid $gray;
+			color: $gray;
+			&:hover {
+				border: 1px solid lighten($blue, 30%);
+				background: lighten($blue, 30%);
+				color: white;
+			}
+		}
 	}
 }
